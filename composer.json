@@ -1,0 +1,20 @@
+{
+  "name": "vijaycs85/drupal-core-extension",
+  "type": "behat-extension",
+  "description": "Behat test for Drupal core functionality",
+  "keywords": ["drupal", "web", "test"],
+  "homepage": "http://github.com/vijaycs85/drupal-core-extension",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Vijaya Chandran Mani",
+      "email": "vijaycs85@gmail.com"
+    }
+  ],
+  "require": {
+    "drupal/drupal-extension": "^3.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "3.7.*"
+  }
+}
