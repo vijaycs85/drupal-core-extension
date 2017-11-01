@@ -3,7 +3,6 @@
 namespace DrupalCoreExtension\Context;
 
 use Drupal\DrupalExtension\Context\RawDrupalContext;
-use Drupal\Tests\WebAssert;
 
 /**
  * Provides pre-built step definitions for interacting with Drupal.
@@ -11,15 +10,55 @@ use Drupal\Tests\WebAssert;
 class DrupalContext extends RawDrupalContext {
 
   /**
-   * Checks, that element with specified CSS exists on page
-   * Example: Then I should see a "body" field
-   * Example: And I should see a "body" field
+   * Checks that field with with the given name or ID exist.
    *
-   * @Then /^(?:|I )should see an? "(?P<field>[^"]*)" field$/
+   * Example: Then I should see "body" field
+   * Example: And I should see "body" field
+   *
+   * @Then /^(?:|I )should see "(?P<field>[^"]*)" field$/
    */
-  public function assertElementOnPage($field)
+  public function assertFieldOnPage($field)
   {
     $this->assertSession()->fieldExists($field);
+  }
+
+  /**
+   * Checks that field with the given name or ID does exist.
+   *
+   * Example: Then I should not see "body" field
+   * Example: And I should see not "body" field
+   *
+   * @Then /^(?:|I )should not see "(?P<field>[^"]*)" field$/
+   */
+  public function assertNoFieldOnPage($field)
+  {
+    $this->assertSession()->fieldNotExists($field);
+  }
+
+  /**
+   * Checks that button with with the given name or ID exist.
+   *
+   * Example: Then I should see "submit" button
+   * Example: And I should see "body" button
+   *
+   * @Then /^(?:|I )should see "(?P<button>[^"]*)" button$/
+   */
+  public function assertButtonExist($button)
+  {
+    $this->assertSession()->buttonExists($button);
+  }
+
+  /**
+   * Checks that button with the given name or ID does exist.
+   *
+   * Example: Then I should not see "body" button
+   * Example: And I should see not "body" button
+   *
+   * @Then /^(?:|I )should not see "(?P<button>[^"]*)" button$/
+   */
+  public function assertButtonNotExist($button)
+  {
+    $this->assertSession()->buttonNotExists($button);
   }
 
   /**
